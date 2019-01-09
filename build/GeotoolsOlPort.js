@@ -8,11 +8,12 @@ function Geotools_port_init(elmApp){
     });
 
 	elmApp.ports.storeOrdersInCache.subscribe(function(data) {
-	  localStorage.setItem('cache', data);
+		localStorage.setItem('cache', data);
 	});
 
-	elmApp.ports.getOrdersFromCache.send(localStorage.getItem('cache'));
-
+	if (localStorage.getItem('cache')) {
+		elmApp.ports.getOrdersFromCache.send(localStorage.getItem('cache'));
+	}
 // receive something from Elm
     elmApp.ports.setOlAction.subscribe(function (strAction) {
         console.log("got from Elm:", strAction);
@@ -63,8 +64,8 @@ var DSOlMap = {
 	  		DSOlMap.mapconfig = mapconfig;
 	  		// Remove Features (https://gis.stackexchange.com/questions/251770/how-can-i-clear-a-vector-layer-features-in-openlayers-4)
 	  		features = DSOlMap.periLayer.getSource().getFeatures();
-		    features.forEach((feature) => {
-		        DSOlMap.periLayer.getSource().removeFeature(feature);
+		    features.forEach(function(feature) {
+		        return DSOlMap.periLayer.getSource().removeFeature(feature);
 		    });
 		}
 	  	DSOlMap.addPeri(mapconfig);
@@ -81,7 +82,7 @@ var DSOlMap = {
 		DSOlMap.removeInteractions();
 		// Remove Features (https://gis.stackexchange.com/questions/251770/how-can-i-clear-a-vector-layer-features-in-openlayers-4)
   		features = DSOlMap.periLayer.getSource().getFeatures();
-	    features.forEach((feature) => {
+	    features.forEach(function(feature) {
 	        DSOlMap.periLayer.getSource().removeFeature(feature);
 	    });
 		if (DSOlMap.mapconfig.perimeter === 'polygon') {
@@ -101,7 +102,7 @@ var DSOlMap = {
 		} else if (DSOlMap.mapconfig.perimeter === "box"){
 			DSOlMap.mapconfig.box = newPeri;
 		}
-		console.log(fromInteractionString, ': ', newPeri);
+		// console.log(fromInteractionString, ': ', newPeri);
 		DSOlMap.elmApp.ports.mapConfigChanged.send(DSOlMap.mapconfig);
 	},
 
@@ -182,7 +183,7 @@ var DSOlMap = {
 	        DSOlMap.mapconfig.extent = e.target.calculateExtent(DSOlMap.map.getSize());
 	        DSOlMap.mapconfig.zoom = DSOlMap.map.getView().getZoom();
 	        // ******** sendet die aktualisierte mapconfig nach jeder Änderung an elm
-	        console.log("view change: ", DSOlMap.mapconfig.extent.toString(), DSOlMap.mapconfig.center, DSOlMap.mapconfig.zoom);
+	        // console.log("view change: ", DSOlMap.mapconfig.extent.toString(), DSOlMap.mapconfig.center, DSOlMap.mapconfig.zoom);
 	        elmApp.ports.mapConfigChanged.send(DSOlMap.mapconfig);
 	    });
 
@@ -209,11 +210,11 @@ var DSOlMap = {
 
 
 	    DSOlMap.boxExtent = new ol.interaction.Extent({
-	    	source : DSOlMap.featureSource,
+	    	source : DSOlMap.featureSource
 	        //condition: ol.events.condition.platformModifierKeyOnly
 	    });
 	    DSOlMap.boxExtent.on('extentchanged', function(e) {
-	        console.log(e.extent);
+	        // console.log(e.extent);
 	    });
 
 	    // draw box
