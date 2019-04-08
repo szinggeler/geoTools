@@ -9,7 +9,7 @@ if (workbox) {
 */
 
 workbox.precaching.precacheAndRoute([
-    './geoToolsParcel.3baf5dcc.js',
+    './geoToolsParcel.af78f261.js',
     './geoToolsParcel.5cd39c0a.css',
     './manifest.json',
     './icoGeoTools192.png',
