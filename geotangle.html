@@ -1,0 +1,40 @@
+<html>
+<head>
+	<link rel="manifest" href="./manifest.json">
+
+	<meta charset="utf-8">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="application-name" content="geoTangle">
+	<meta name="apple-mobile-web-app-title" content="geoTangle">
+	<meta name="theme-color" content="#202020">
+	<meta name="msapplication-navbutton-color" content="#202020">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="msapplication-starturl" content="./geotangle.html">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1, user-scalable=no">
+
+	<link rel="icon" type="image/png" sizes="512x512" href="icoGeoTangle512.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="512x512" href="icoGeoTangle512.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="icoGeoTangle192.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="192x192" href="icoGeoTangle192.png">
+
+	<title>geoTangle</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300" rel="stylesheet">
+	<link rel="stylesheet" href="./geoToolsParcel.5cd39c0a.css">
+	<style>.map{height:100%;width:100%;background:#eef}</style>
+</head>
+<body>
+	<main></main>
+	<div id="map"></div>
+	<script src="./geoToolsParcel.ba6d7b8e.js"></script>
+	<script>
+		if('serviceWorker' in navigator) {
+			navigator.serviceWorker
+				.register('./service-worker.js')
+				.then(function() {
+				// console.log("Service Worker Registered");
+				});
+		}
+	</script>
+</body>
+</html>

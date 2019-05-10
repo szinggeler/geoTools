@@ -9,12 +9,12 @@ if (workbox) {
 */
 
 workbox.precaching.precacheAndRoute([
-    './geoToolsParcel.af78f261.js',
+    './geoToolsParcel.ba6d7b8e.js',
     './geoToolsParcel.5cd39c0a.css',
     './manifest.json',
-    './icoGeoTools192.png',
-    './icoGeoTools512.png',
-    './geotools.html'
+    './icoGeoTangle192.png',
+    './icoGeoTangle512.png',
+    './geotangle.html'
 ]);
 
 // ??? ev. besser als jetzt mit Locale Storage ???

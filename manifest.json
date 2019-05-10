@@ -1,20 +1,23 @@
 {
-    "short_name": "geotools",
-    "name": "Open Data Shop (geoTools)",
-    "icons": [
-      {
-            "src": "./icoGeoTools192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "./icoGeoTools512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "start_url": "./geotools.html",
-    "display": "standalone",
-    "theme_color": "#202020",
-    "background_color": "#181D4A"
-  }
+  "name": "Geo Data Shop (geoTangle)",
+  "short_name": "geoTangle",
+  "description": "Tool to order and download geo data.",
+  "lang": "de-DE",
+  "start_url": "./geotangle.html",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#202020",
+  "icons": [
+    {
+      "src": "icoGeoTangle512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icoGeoTangle192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#181D4A"
+}
